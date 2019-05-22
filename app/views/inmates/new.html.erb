@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8 mt-3">
+      <%= simple_form_for [@prison, @inmate] do |f| %>
+        <%= f.input :name, placeholder: "Sulav" %>
+        <%= f.input :image_url, placeholder: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/dluzi5onoqlnu3cjgyky.jpg" %>
+        <%= f.input :crime, collection: Inmate::CRIMES %>
+        <%= f.input :death_row %>
+        <%= f.submit "Incarcerate", class: "btn btn-danger" %>
+      <% end %>
+    </div>
+  </div>
+</div>

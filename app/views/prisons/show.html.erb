@@ -1,5 +1,21 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @prison.banner_url %>);">
   <div class="container">
     <h1>Welcome to <strong><%= @prison.name %></strong></h1>
+    <%= link_to "Join Now", new_prison_inmate_path(@prison), class: "btn btn-danger" %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 card-grid m-3">
+      <% @prison.inmates.each do |inmate| %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= inmate.image_url %>)">
+          <%= inmate.name %>
+          <% if inmate.death_row %>
+            <%= link_to "+", inmate_path(inmate), method: :delete, class: "card-remove-link", data: { confirm: "Excute #{inmate.name}?"} %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

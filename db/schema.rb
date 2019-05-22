@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_22_084114) do
+ActiveRecord::Schema.define(version: 2019_05_22_094434) do
+
+  create_table "inmates", force: :cascade do |t|
+    t.string "name"
+    t.string "crime"
+    t.string "image_url"
+    t.boolean "death_row", default: true
+    t.integer "prison_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "age"
+    t.index ["prison_id"], name: "index_inmates_on_prison_id"
+  end
 
   create_table "prisons", force: :cascade do |t|
     t.string "name"
