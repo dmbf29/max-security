@@ -10,6 +10,12 @@
     <div class="col-12 card-grid m-3">
       <% @prison.inmates.each do |inmate| %>
         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= inmate.image_url %>)">
+          <%= link_to "+", new_inmate_inmate_crime_path(inmate), class: "btn btn-default card-add-crime"  %>
+          <div class="card-tags">
+            <% inmate.crimes.each do |crime| %>
+              <span><%= crime.name %></span>
+            <% end %>
+          </div>
           <%= inmate.name %>
           <% if inmate.death_row %>
             <%= link_to "+", inmate_path(inmate), method: :delete, class: "card-remove-link", data: { confirm: "Excute #{inmate.name}?"} %>

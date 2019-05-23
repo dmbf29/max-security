@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="row justify-content-center m-5">
+    <div class="col-12 col-sm-8">
+      <h1>Add crime for <%= @inmate.name %></h1>
+      <%= simple_form_for [@inmate, @inmate_crime] do |f| %>
+        <%= f.association :crime, input_html: {multiple: true }, include_hidden: false %>
+        <%= f.button :submit, "Assign Crime", class: "btn btn-danger" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<form action=""></form>

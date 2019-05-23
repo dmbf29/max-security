@@ -40,6 +40,12 @@
     opacity: 1;
   }
 }
+.card-add-crime{
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  color: white !important;
+}
 
 .card-tags {
   position: absolute;
@@ -47,7 +53,7 @@
   left: 8px;
   width: 80%;
   span {
-    background: $blue;
+    background: $danger;
     font-size: .7em;
     padding: 2px 4px;
     border-radius: 3px;
