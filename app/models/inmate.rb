@@ -1,6 +1,7 @@
 class Inmate < ApplicationRecord
   belongs_to :prison
-  CRIMES = ['bad indentation', 'using scaffold', 'inline styling', 'spaces to indent']
+  has_many :inmate_crimes
+  has_many :crimes, through: :inmate_crimes
   validates :name, presence: true
-  validates :crime, inclusion: { in: CRIMES }
+  # validates :crime, inclusion: { in: CRIMES }
 end
